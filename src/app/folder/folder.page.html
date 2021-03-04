@@ -1,18 +1,118 @@
 <ion-header>
   <ion-toolbar color="primary">
-
     <ion-buttons slot="start">
       <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
-
-    <ion-title class="titulo-home">{{ nome }}</ion-title>     <!-- nome do usuário logado -->
-
+    <ion-title class="titulo-home">{{nome}}</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="logout()">
+      <ion-button  (click)="logout()">
         <ion-icon slot="end" name="log-out"></ion-icon>
       </ion-button>
     </ion-buttons>
-    
   </ion-toolbar>
 </ion-header>
 
+
+
+<ion-content [fullscreen]="true">
+  
+  <!-- Clientes -->
+  <ion-card class="card">
+    <ion-item>
+      <ion-icon name="people" slot="start" color="primary"></ion-icon>
+      <ion-label>Total de Clientes</ion-label>
+        
+    </ion-item>
+  
+    
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="3">
+          <ion-label class="texto-grande">{{clientes}}</ion-label> 
+        </ion-col>
+        <ion-col>
+         <ion-label>Total de Clientes Cadastrados</ion-label> 
+        </ion-col>
+      </ion-row>
+      
+      
+    </ion-card-content>
+  </ion-card>
+
+
+
+  
+    <!-- Processo -->
+  <ion-card class="card">
+    <ion-item>
+      <ion-icon name="briefcase" slot="start" color="primary"></ion-icon>
+      <ion-label>Total de Processos</ion-label>
+        
+    </ion-item>
+
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="3">
+          <ion-label class="texto-grande">{{processos}}</ion-label> 
+        </ion-col>
+        <ion-col>
+         <ion-label>Processos em Andamento</ion-label> 
+        </ion-col>
+      </ion-row>
+      
+      
+    </ion-card-content>
+  </ion-card>
+
+
+
+<!-- Audiencia -->
+  <ion-card class="card">
+    <ion-item>
+      <ion-icon name="mail" slot="start" color="primary"></ion-icon>
+      <ion-label>Total de Audiências</ion-label>
+        
+    </ion-item>
+  
+    
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="3">
+          <ion-label class="texto-grande">{{audiencias}}</ion-label> 
+        </ion-col>
+        <ion-col>
+         <ion-label>Total de Audiências Hoje</ion-label> 
+        </ion-col>
+      </ion-row>
+      
+      
+    </ion-card-content>
+  </ion-card>
+
+
+<!-- Agenda -->
+  <ion-card class="card">
+    <ion-item>
+      <ion-icon name="calendar" slot="start" color="primary"></ion-icon>
+      <ion-label>Tarefas Agendadas</ion-label>
+        
+    </ion-item>
+  
+    
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="3">
+          <ion-label class="texto-grande">{{tarefas}}</ion-label> 
+        </ion-col>
+        <ion-col>
+         <ion-label>Tarefas para Hoje</ion-label> 
+        </ion-col>
+      </ion-row>
+      
+      
+    </ion-card-content>
+  </ion-card>
+  
+
+
+</ion-content>

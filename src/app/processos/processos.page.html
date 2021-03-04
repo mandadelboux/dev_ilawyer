@@ -1,9 +1,82 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>processos</ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Lista de Processos</ion-title>
+   
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+
+<ion-row class="azulclaro">
+  
+    <ion-input placeholder="Número Proceso ou CPF/CNPJ" [(ngModel)]="nome" type="search" (ionChange)="carregar()" ></ion-input>
+  
+    <ion-buttons (click)="carregar()">
+      <ion-button>
+        <ion-icon slot="end" name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  
+</ion-row>
+
+
+
+<ion-content class="cinza-claro" class="ion-padding">
+<ion-list>
+  <ion-item-sliding *ngFor="let item of lista">
+    <ion-item-options side="start">
+      <ion-item-option (click)="mov(item.processo)">
+        Movimentação
+      </ion-item-option>
+    </ion-item-options>
+
+    <ion-item>
+      <ion-label>{{item.cliente}}
+      <h6><small> 
+        <span>
+          <ion-icon name="square" color="primary" *ngIf="item.status === 'Andamento'"></ion-icon>
+          <ion-icon name="square" color="warning" *ngIf="item.status === 'Aberto'"></ion-icon>
+          <ion-icon name="square" color="secondary" *ngIf="item.status === 'Arquivado'"></ion-icon>
+          <ion-icon name="square" color="success" *ngIf="item.status === 'Concluído'"></ion-icon>
+          <ion-icon name="square" color="danger" *ngIf="item.status === 'Cancelado'"></ion-icon>
+          {{item.status}}
+        </span>  - 
+        {{item.acao}}</small></h6>
+    </ion-label>
+    </ion-item>
+
+    <ion-item-options side="end">
+      <ion-item-option (click)="mostrar(item.id, item.processo, item.vara, item.acao, item.cliente, item.status, item.obs, item.data_audiencia, item.audiencias)" color="secondary">
+        Mostrar
+      </ion-item-option>
+    
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+
+
+<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+  <ion-refresher-content
+    pullingIcon="arrow-dropdown"
+    
+    refreshingSpinner="circles"
+    refreshingText="Carregando...">
+  </ion-refresher-content>
+</ion-refresher>
+
+
+
+
+
+
+<ion-infinite-scroll  (ionInfinite)="loadData($event)">
+<ion-infinite-scroll-content
+  loadingSpinner="bubbles"
+  loadingText="Carregando mais dados">
+</ion-infinite-scroll-content>
+</ion-infinite-scroll>
+
 
 </ion-content>

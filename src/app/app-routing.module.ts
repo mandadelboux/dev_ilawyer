@@ -26,7 +26,8 @@ const routes: Routes = [
   {
     path: 'agenda',
     loadChildren: () => import('./agenda/agenda.module').then( m => m.AgendaPageModule)
-  }
+  },
+
 ];
 
 @NgModule({

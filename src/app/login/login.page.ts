@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Post } from 'src/services/post';
 import { ToastController } from '@ionic/angular';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
+
 
 @Component({
   selector: 'app-login',
@@ -13,7 +15,7 @@ export class LoginPage implements OnInit {
   usuario: string = "";
   senha: string = "";
 
-  constructor(private router: Router, private provider: Post, public toast: ToastController) { }
+  constructor(private storage: NativeStorage, private router: Router, private provider: Post, public toast: ToastController) { }
 
   ngOnInit() {
   }
@@ -47,11 +49,12 @@ export class LoginPage implements OnInit {
     };
 
     // Chamada para API
-
+    
     this.provider.dadosApi(dados, 'apiAdv.php').subscribe(async data => {
+      
       var alert = data['msg'];
       if (data['success']) {
-        // this.storage.setItem('session_storage', data['result']);
+        this.storage.setItem('session_storage', data['result']);
         if (data['result']['nivel'] == 'Advogado') { // Só vai ter acesso quem for advogado
           this.router.navigate(['/folder']);
         } else {

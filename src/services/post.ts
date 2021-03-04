@@ -5,7 +5,8 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class Post{
-    server: string = 'http://localhost/ilawyer/apis/';
+    // server: string = 'http://localhost/ilawyer/apis/';
+    server: string = 'http://localhost/dev/apis/';
 
     constructor(private http : HttpClient){
        
