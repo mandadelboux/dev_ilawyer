@@ -26,7 +26,19 @@ const routes: Routes = [
   {
     path: 'agenda',
     loadChildren: () => import('./agenda/agenda.module').then( m => m.AgendaPageModule)
+  },  {
+    path: 'mostrar-processo',
+    loadChildren: () => import('./mostrar-processo/mostrar-processo.module').then( m => m.MostrarProcessoPageModule)
   },
+  {
+    path: 'mostrar-cliente',
+    loadChildren: () => import('./mostrar-cliente/mostrar-cliente.module').then( m => m.MostrarClientePageModule)
+  },
+  {
+    path: 'add-clientes',
+    loadChildren: () => import('./add-clientes/add-clientes.module').then( m => m.AddClientesPageModule)
+  },
+
 
 ];
 

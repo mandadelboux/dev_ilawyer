@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start" (click)="Clientes()">
+      <ion-button>
+        <ion-icon  name="arrow-back"> </ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Cadastrar Cliente</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label position="floating">
+      Nome
+    </ion-label>
+    <ion-input [(ngModel)]="nome">
+
+    </ion-input>
+  </ion-item>
+
+  <ion-item *ngIf="!id">
+    <ion-label>Física / Jurídica</ion-label>
+    <ion-select placeholder="Selecione" [(ngModel)]="pessoa">
+      <ion-select-option value="Pessoa Fisica">Pessoa Física</ion-select-option>
+      <ion-select-option value="Pessoa Jurídica">Pessoa Jurídica</ion-select-option>
+     
+    </ion-select>
+  </ion-item>
+
+  <ion-item  *ngIf="!id">
+    <ion-label position="floating">
+      CPF / CNPJ
+    </ion-label>
+    <ion-input [(ngModel)]="cpf">
+
+    </ion-input>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label position="floating">
+      Telefone
+    </ion-label>
+    <ion-input [(ngModel)]="telefone">
+
+    </ion-input>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label position="floating">
+      Email
+    </ion-label>
+    <ion-input [(ngModel)]="email">
+
+    </ion-input>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label position="floating">
+      Endereço
+    </ion-label>
+    <ion-input [(ngModel)]="endereco">
+
+    </ion-input>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label position="floating">
+      Observações
+    </ion-label>
+    <ion-textarea [(ngModel)]="obs">
+
+    </ion-textarea>
+  </ion-item>
+  
+
+  <ion-button *ngIf="!id" color="success" expand="block" (click)="cadastrar()">
+    Salvar
+  </ion-button>
+
+  <ion-button *ngIf="id" color="primary" expand="block" (click)="editar()">
+    Editar
+  </ion-button>
+
+</ion-content>

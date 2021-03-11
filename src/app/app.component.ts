@@ -11,6 +11,7 @@ export class AppComponent {
     { title: 'Home', url: '/folder', icon: 'home' },
     { title: 'Processos', url: '/processos', icon: 'document' },
     { title: 'Clientes', url: '/clientes', icon: 'people' },
+    { title: 'Cadastrar Cliente', url: '/add-clientes', icon: 'person-add' },
     { title: 'Agenda', url: '/agenda', icon: 'archive' }
   ];
   constructor() {}

@@ -1,0 +1,36 @@
+<ion-header >
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start" (click)="Processos()">
+      <ion-button>
+        <ion-icon  name="arrow-back"> </ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Dados do Processo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card class="cinza-claro">
+  <ion-card-header>
+    
+    <ion-card-title>
+      <ion-icon name="square" color="primary" *ngIf="status === 'Andamento'"></ion-icon>
+      <ion-icon name="square" color="warning" *ngIf="status === 'Aberto'"></ion-icon>
+      <ion-icon name="square" color="secondary" *ngIf="status === 'Arquivado'"></ion-icon>
+      <ion-icon name="square" color="success" *ngIf="status === 'Concluído'"></ion-icon>
+      <ion-icon name="square" color="danger" *ngIf="status === 'Cancelado'"></ion-icon>
+      {{cliente}}
+    </ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <b>Número do Processo:<br> {{processo}}</b> <br><br>
+    Ação: {{acao}} - Vara: {{vara}} <br>
+    Audiências: {{audiencias}} - Próxima Audiência: {{data_audiencia}} <br>
+
+    <br>
+    <b>Observações</b><br>
+    {{obs}} <br>
+    
+  </ion-card-content>
+</ion-card>
+</ion-content>
